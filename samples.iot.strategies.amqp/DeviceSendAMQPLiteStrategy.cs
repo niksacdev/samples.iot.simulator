@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 using Amqp;
 using Amqp.Framing;
 using Newtonsoft.Json;
+using samples.iot.core;
 
-namespace samples.iot.simulator.core
+namespace samples.iot.strategies.amqp
 {
 	/// <summary>
 	/// Sender Strategy.

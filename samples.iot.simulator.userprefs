@@ -1,35 +1,21 @@
 ﻿<Properties StartupConfiguration="{470292C9-FC1E-4E15-A1B7-0C3488A1ED1E}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="samples.iot.simulator.console/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="samples.iot.simulator Status">
     <Files>
-      <File FileName="samples.iot.simulator.console/Program.cs" Line="37" Column="5" />
-      <File FileName="samples.iot.simulator.console/Utils/DeviceProtocol.cs" Line="11" Column="1" />
-      <File FileName="samples.iot.simulator.console/Utils/HttpUtility.cs" Line="4" Column="37" />
-      <File FileName="samples.iot.simulator.console/Utils/SHA.cs" Line="16" Column="8" />
-      <File FileName="samples.iot.simulator.console/Utils/TokenGenerator.cs" Line="17" Column="46" />
-      <File FileName="samples.iot.simulator.console/Entities/ConnectionContext.cs" Line="5" Column="25" />
-      <File FileName="samples.iot.simulator.console/Entities/DeviceContext.cs" Line="22" Column="16" />
-      <File FileName="samples.iot.simulator.console/Interfaces/IDeviceSendStrategy.cs" Line="18" Column="3" />
-      <File FileName="samples.iot.simulator.console/Interfaces/IDeviceReceiveStrategy.cs" Line="16" Column="3" />
-      <File FileName="samples.iot.simulator.console/Interfaces/IDeviceSender.cs" Line="17" Column="62" />
-      <File FileName="samples.iot.simulator.console/Interfaces/IDeviceReceiver.cs" Line="20" Column="1" />
-      <File FileName="samples.iot.simulator.console/Interfaces/IDeviceSendFactory.cs" Line="7" Column="32" />
-      <File FileName="samples.iot.simulator.console/DeviceProviders/Sender/DeviceSender.cs" Line="23" Column="4" />
-      <File FileName="samples.iot.simulator.console/DeviceProviders/Sender/DeviceSenderFactory.cs" Line="19" Column="2" />
-      <File FileName="samples.iot.simulator.console/DeviceProviders/Receiver/DeviceReceiver.cs" Line="13" Column="17" />
-      <File FileName="samples.iot.simulator.console/DeviceProviders/Receiver/DeviceReceiverFactory.cs" Line="11" Column="17" />
-      <File FileName="samples.iot.simulator.console/Strategies/DeviceSendAMQPLiteStrategy.cs" Line="10" Column="15" />
-      <File FileName="samples.iot.simulator.console/Strategies/DeviceReceiverDefaultStrategy.cs" Line="17" Column="4" />
-      <File FileName="samples.iot.simulator.console/Interfaces/IDeviceReceiveFactory.cs" Line="11" Column="17" />
+      <File FileName="samples.iot.simulator.console/Program.cs" Line="54" Column="5" />
+      <File FileName="samples.iot.strategies.amqp/DeviceSendAMQPLiteStrategy.cs" Line="49" Column="6" />
+      <File FileName="samples.iot.strategies.amqp/DeviceReceiverDefaultStrategy.cs" Line="8" Column="27" />
+      <File FileName="samples.iot.strategies.amqp/TokenGenerator.cs" Line="12" Column="3" />
+      <File FileName="samples.iot.simulator Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/niksac/Projects/github/samples.iot.simulator/samples.iot.simulator/samples.iot.simulator.console/DeviceProviders/Sender/DeviceSendAMQPLite.cs" relfile="samples.iot.simulator.console/DeviceProviders/Sender/DeviceSendAMQPLite.cs" line="77" column="1" />
-      <Breakpoint file="/Users/niksac/Projects/github/samples.iot.simulator/samples.iot.simulator/samples.iot.simulator.console/DeviceProviders/Sender/DeviceSendAMQPLite.cs" relfile="samples.iot.simulator.console/DeviceProviders/Sender/DeviceSendAMQPLite.cs" line="29" column="1" />
+      <Breakpoint file="/Users/niksac/Projects/github/samples.iot.simulator/samples.iot.simulator.console/DeviceProviders/Sender/DeviceSendAMQPLite.cs" relfile="samples.iot.simulator.console/DeviceProviders/Sender/DeviceSendAMQPLite.cs" line="77" column="1" />
+      <Breakpoint file="/Users/niksac/Projects/github/samples.iot.simulator/samples.iot.simulator.console/DeviceProviders/Sender/DeviceSendAMQPLite.cs" relfile="samples.iot.simulator.console/DeviceProviders/Sender/DeviceSendAMQPLite.cs" line="29" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.samples.iot.simulator.console PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.samples.iot.simulator.sender PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

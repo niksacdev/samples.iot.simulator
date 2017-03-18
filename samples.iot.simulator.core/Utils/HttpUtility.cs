@@ -1,7 +1,7 @@
 /*
 * By ppatierno, source available at: https://github.com/ppatierno/codesamples/blob/master/IoTHubAmqp/IoTHubAmqp/Program.cs
 */
-namespace samples.iot.simulator.core
+namespace samples.iot.core
 {
 	using System;
 	using System.Text;

@@ -1,5 +1,5 @@
-﻿using System;
-namespace samples.iot.simulator.core
+using System;
+namespace samples.iot.core
 {
 	/// <summary>
 	/// Connection context.

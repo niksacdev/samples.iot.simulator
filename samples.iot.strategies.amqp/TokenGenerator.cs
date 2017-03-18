@@ -1,10 +1,12 @@
 ﻿/*
- */ 
+ */
 using System;
 using System.Text;
 using Amqp;
 using Amqp.Framing;
-namespace samples.iot.simulator.core
+using samples.iot.core;
+
+namespace samples.iot.strategies.amqp
 {
 	static class TokenGenerator
 	{

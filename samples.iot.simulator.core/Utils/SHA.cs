@@ -1,7 +1,7 @@
-﻿//  
+//  
 //  By Elze Kool see http://www.microframework.nl/2009/09/05/shahmac-digest-class/ 
 //   
-namespace samples.iot.simulator.core
+namespace samples.iot.core
 {
 	using System;
 

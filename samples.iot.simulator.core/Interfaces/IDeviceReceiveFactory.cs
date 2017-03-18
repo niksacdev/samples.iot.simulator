@@ -1,5 +1,5 @@
 ﻿using System;
-namespace samples.iot.simulator.core
+namespace samples.iot.core
 {
 	/// <summary>
 	/// Device sender factory.

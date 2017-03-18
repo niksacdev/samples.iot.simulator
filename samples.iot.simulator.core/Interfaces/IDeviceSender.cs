@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace samples.iot.simulator.core
+namespace samples.iot.core
 {
 	/// <summary>
 	/// Device sender.

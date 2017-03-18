@@ -1,5 +1,7 @@
 ﻿using System;
-namespace samples.iot.simulator.core
+using samples.iot.core;
+
+namespace samples.iot.providers.receiver
 {
 	/// <summary>
 	/// Device sender factory.

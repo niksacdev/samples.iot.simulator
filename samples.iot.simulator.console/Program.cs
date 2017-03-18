@@ -1,11 +1,18 @@
-﻿using System;
+﻿//TODO: Add license and header
+using System;
 using System.Text;
 using System.Threading.Tasks;
 using Amqp;
 using Amqp.Framing;
-using samples.iot.simulator.core;
-namespace samples.iot.simulator.console
+using samples.iot.core;
+using samples.iot.providers.sender;
+using samples.iot.strategies.amqp;
+
+namespace samples.iot.simulator.sender
 {
+	/// <summary>
+	/// Program.
+	/// </summary>
 	class Program
 	{
 		/// <summary>
@@ -17,7 +24,7 @@ namespace samples.iot.simulator.console
 			try
 			{
 				//Execute the send command to send a message to IoT Hub
-				Run().Wait();
+				SendMessageToIoTHub().Wait();
 			}
 			catch (Exception ex)
 			{
@@ -31,7 +38,7 @@ namespace samples.iot.simulator.console
 		/// Executes the command.
 		/// </summary>
 		/// <returns>The command.</returns>
-		static async Task Run()
+		static async Task SendMessageToIoTHub()
 		{
 			try
 			{

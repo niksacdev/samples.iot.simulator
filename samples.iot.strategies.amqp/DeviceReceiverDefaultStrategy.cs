@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using samples.iot.core;
 
-namespace samples.iot.simulator.core
+namespace samples.iot.strategies.amqp
 {
 	/// <summary>
 	/// Device receiver amqp.
