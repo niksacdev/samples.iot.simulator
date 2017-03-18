@@ -9,6 +9,6 @@
     <PackageReference Include="AMQPNetLite" Version="1.2.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\samples.iot.simulator.core\samples.iot.core.csproj" />
+    <ProjectReference Include="..\samples.iot.core\samples.iot.core.csproj" />
   </ItemGroup>
 </Project>

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 15.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "samples.iot.simulator.sender", "samples.iot.simulator.console\samples.iot.simulator.sender.csproj", "{470292C9-FC1E-4E15-A1B7-0C3488A1ED1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "samples.iot.core", "samples.iot.simulator.core\samples.iot.core.csproj", "{39E2A17B-2CD5-43FC-9367-D914298297BE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "samples.iot.strategies.amqp", "samples.iot.strategies.amqp\samples.iot.strategies.amqp.csproj", "{B196C16F-3DD3-44A1-9734-86E261A3228C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "samples.iot.providers.sender", "samples.iot.providers.sender\samples.iot.providers.sender.csproj", "{5CEC3AF8-433C-4648-9BA2-6E43D2E7DB1E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "samples.iot.providers.receiver", "samples.iot.providers.receiver\samples.iot.providers.receiver.csproj", "{B3F91B8C-727D-4A32-88EB-EF2DB7EE47D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "samples.iot.core", "samples.iot.core\samples.iot.core.csproj", "{C81A0B61-D0D1-4895-A858-208F49D94C99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{470292C9-FC1E-4E15-A1B7-0C3488A1ED1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{470292C9-FC1E-4E15-A1B7-0C3488A1ED1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{470292C9-FC1E-4E15-A1B7-0C3488A1ED1E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39E2A17B-2CD5-43FC-9367-D914298297BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39E2A17B-2CD5-43FC-9367-D914298297BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39E2A17B-2CD5-43FC-9367-D914298297BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39E2A17B-2CD5-43FC-9367-D914298297BE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B196C16F-3DD3-44A1-9734-86E261A3228C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B196C16F-3DD3-44A1-9734-86E261A3228C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B196C16F-3DD3-44A1-9734-86E261A3228C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,5 +33,9 @@ Global
 		{B3F91B8C-727D-4A32-88EB-EF2DB7EE47D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3F91B8C-727D-4A32-88EB-EF2DB7EE47D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3F91B8C-727D-4A32-88EB-EF2DB7EE47D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C81A0B61-D0D1-4895-A858-208F49D94C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C81A0B61-D0D1-4895-A858-208F49D94C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C81A0B61-D0D1-4895-A858-208F49D94C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C81A0B61-D0D1-4895-A858-208F49D94C99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
