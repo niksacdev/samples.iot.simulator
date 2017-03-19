@@ -1,2 +1,2 @@
-# samples.iot.simulator
-Repo for sample IoT simulator build using VS for Mac
+# .NET Core Simulator for Azure IoT Hub
+Repo for sample IoT simulator build using .NET Core
