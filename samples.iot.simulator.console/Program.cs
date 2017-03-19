@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using ProtoBuf;
 using samples.iot.core;
 using samples.iot.providers.sender;
+using samples.iot.simulator.contract;
 using samples.iot.strategies.amqp;
 
 namespace samples.iot.simulator.sender

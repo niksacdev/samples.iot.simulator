@@ -6,7 +6,7 @@
 using System;
 using ProtoBuf;
 
-namespace samples.iot.simulator.sender
+namespace samples.iot.simulator.contract
 {
 	[ProtoContract]
 	public class VehicleStatus

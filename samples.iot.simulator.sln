@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "samples.iot.providers.recei
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "samples.iot.core", "samples.iot.core\samples.iot.core.csproj", "{C81A0B61-D0D1-4895-A858-208F49D94C99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "simulator.iot.simulator.contracts", "simulator.iot.simulator.contracts\simulator.iot.simulator.contracts.csproj", "{EE3426BD-E0F7-4237-B18A-0818401A470E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,5 +39,9 @@ Global
 		{C81A0B61-D0D1-4895-A858-208F49D94C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C81A0B61-D0D1-4895-A858-208F49D94C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C81A0B61-D0D1-4895-A858-208F49D94C99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE3426BD-E0F7-4237-B18A-0818401A470E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE3426BD-E0F7-4237-B18A-0818401A470E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE3426BD-E0F7-4237-B18A-0818401A470E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE3426BD-E0F7-4237-B18A-0818401A470E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

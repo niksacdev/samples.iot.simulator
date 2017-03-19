@@ -18,5 +18,6 @@
     <ProjectReference Include="..\samples.iot.providers.sender\samples.iot.providers.sender.csproj" />
     <ProjectReference Include="..\samples.iot.strategies.amqp\samples.iot.strategies.amqp.csproj" />
     <ProjectReference Include="..\samples.iot.core\samples.iot.core.csproj" />
+    <ProjectReference Include="..\simulator.iot.simulator.contracts\simulator.iot.simulator.contracts.csproj" />
   </ItemGroup>
 </Project>
