@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.1-beta1" />
     <PackageReference Include="AMQPNetLite" Version="1.2.2" />
+    <PackageReference Include="protobuf-net" Version="2.1.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\samples.iot.providers.receiver\samples.iot.providers.receiver.csproj" />

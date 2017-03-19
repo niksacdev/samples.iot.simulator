@@ -9,6 +9,7 @@ namespace samples.iot.core
 	{
 		HTTPS = 443,
 		AMQPS = 5672,
+		AMQP = 5671,
 		MQTT = 8883
 	}
 }

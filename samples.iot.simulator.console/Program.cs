@@ -3,10 +3,9 @@
 //  Licensed under the MIT License (MIT). See License.txt in the repo root for license information.
 // ------------------------------------------------------------
 using System;
-using System.Text;
+using System.IO;
 using System.Threading.Tasks;
-using Amqp;
-using Amqp.Framing;
+using ProtoBuf;
 using samples.iot.core;
 using samples.iot.providers.sender;
 using samples.iot.strategies.amqp;
@@ -31,7 +30,6 @@ namespace samples.iot.simulator.sender
 			}
 			catch (Exception ex)
 			{
-				Console.BackgroundColor = ConsoleColor.Red;
 				Console.WriteLine($"{ex.Message} { ex.StackTrace}");
 				Console.ReadLine();
 			}
@@ -51,19 +49,43 @@ namespace samples.iot.simulator.sender
 					DeviceId = "D1234",
 					DeviceKey = "X9GneHneA4Hsnrz7hFRBBpLRIHBKR5xzhLZuz6dpszo=",
 					IoTHubHostName = "azdevmaciothub.azure-devices.net",
-					Port = (int)DeviceProtocol.AMQPS
+					Port = (int)DeviceProtocol.AMQP
 				};
-				string message = string.Empty;
+
+				// Build the message based on the protobuffer
+				var carStats = new VehicleStatus
+				{
+					AirBagStatus = 4,
+					AlarmStatus = 1,
+					Id = Guid.NewGuid(),
+					IgnitionStatus = 0,
+					LockStatus = 1,
+					MilesRemaining = 40,
+					ParkStatus = 1,
+					SportMode = false,
+					TirePessure = 35
+
+				};
+
+				/*
+				 * Using protobuf.net to create a binary message. you may use other DIP like Thrift, Avro.
+				 * The SendMessage API accepts any generic message so you can skip using a binary formatter altogether.
+				*/
+				byte[] messageAsBytes = default(byte[]);
+				using (MemoryStream writer = new MemoryStream())
+				{
+					Serializer.Serialize(writer, carStats);
+					messageAsBytes = writer.ToArray();
+				}
 
 				//Using AMQP lite strategy to send the message
 				IDeviceSendStrategy deviceSendStrategy = new DeviceSendAMQPLiteStrategy();
 
 				// Send the message
-				await new DeviceSenderFactory().GetSender().SendMessageAsync(message, deviceContext, deviceSendStrategy);
+				await new DeviceSenderFactory().GetSender().SendMessageAsync(messageAsBytes, deviceContext, deviceSendStrategy);
 			}
 			catch (Exception ex)
 			{
-				Console.BackgroundColor = ConsoleColor.Red;
 				Console.WriteLine($"{ex.Message} { ex.StackTrace}");
 				throw;
 			}
