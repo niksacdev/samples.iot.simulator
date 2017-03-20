@@ -67,7 +67,6 @@ namespace samples.iot.core
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		public  T DeserializeFromYaml<T>(string path, string fileName)
 		{
-			var result = default(T);
 			if (string.IsNullOrWhiteSpace(path))
 			{
 				// set path to current directory
