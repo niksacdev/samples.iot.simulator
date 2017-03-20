@@ -20,4 +20,9 @@
     <ProjectReference Include="..\samples.iot.core\samples.iot.core.csproj" />
     <ProjectReference Include="..\simulator.iot.simulator.contracts\simulator.iot.simulator.contracts.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

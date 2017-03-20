@@ -87,6 +87,8 @@ namespace samples.iot.strategies.amqp
 			SenderLink senderLink = new SenderLink(session, "sender-link", entity);
 			Message message = new Message
 			{
+				// sending a property to refine messages on the egress site
+				Properties = new Properties { Subject = deviceId },
 				BodySection = new Data { Binary = incomingMessage }
 			};
 

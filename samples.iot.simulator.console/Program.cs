@@ -27,7 +27,7 @@ namespace samples.iot.simulator.sender
 			try
 			{
 				//Execute the send command to send a message to IoT Hub
-				SendMessageToIoTHub().Wait();
+				SendMessageToIoTHubAsync().Wait();
 			}
 			catch (Exception ex)
 			{
@@ -40,50 +40,64 @@ namespace samples.iot.simulator.sender
 		/// Executes the command.
 		/// </summary>
 		/// <returns>The command.</returns>
-		static async Task SendMessageToIoTHub()
+		static async Task SendMessageToIoTHubAsync()
 		{
 			try
 			{
-				// TODO: Get values from Config instead
-				DeviceContext deviceContext = new DeviceContext
-				{
-					DeviceId = "D1234",
-					DeviceKey = "X9GneHneA4Hsnrz7hFRBBpLRIHBKR5xzhLZuz6dpszo=",
-					IoTHubHostName = "azdevmaciothub.azure-devices.net",
-					Port = (int)DeviceProtocol.AMQP
-				};
+				Console.WriteLine("Start sending message to IoT Hub");
 
-				// Build the message based on the protobuffer
-				var carStats = new VehicleStatus
-				{
-					AirBagStatus = 4,
-					AlarmStatus = 1,
-					Id = Guid.NewGuid(),
-					IgnitionStatus = 0,
-					LockStatus = 1,
-					MilesRemaining = 40,
-					ParkStatus = 1,
-					SportMode = false,
-					TirePessure = 35
+				// Get the configuration from config
+				var configurationHandler = ConfigurationHandler.Instance;
+				var settings = configurationHandler.GetConfiguration();
 
-				};
-
-				/*
-				 * Using protobuf.net to create a binary message. you may use other DIP like Thrift, Avro.
-				 * The SendMessage API accepts any generic message so you can skip using a binary formatter altogether.
-				*/
-				byte[] messageAsBytes = default(byte[]);
-				using (MemoryStream writer = new MemoryStream())
+				if (settings != null && settings.ConnectionStrings.Count > 0)
 				{
-					Serializer.Serialize(writer, carStats);
-					messageAsBytes = writer.ToArray();
+					var connection = settings.ConnectionStrings[0].ConnectionString;
+					var evenhubPath = settings.ConnectionStrings[0].Name;
+					var sasKey = settings.ConnectionStrings[0].SasKey;
+					var sasKeyName = settings.ConnectionStrings[0].SasKeyName;
+					var deviceId = settings.DeviceId;
+
+					DeviceContext deviceContext = new DeviceContext
+					{
+						DeviceId = deviceId,
+						DeviceKey = sasKey,
+						IoTHubHostName = connection,
+						Port = (int)DeviceProtocol.AMQP
+					};
+
+					// Build the message based on the protobuffer
+					var carStats = new VehicleStatus
+					{
+						AirBagStatus = 4,
+						AlarmStatus = 3,
+						Id = Guid.NewGuid(),
+						IgnitionStatus = 0,
+						LockStatus = 1,
+						MilesRemaining = 40,
+						ParkStatus = 1,
+						SportMode = false,
+						TirePessure = 35
+					};
+
+					/*
+					 * Using protobuf.net to create a binary message. you may use other DIP like Thrift, Avro.
+					 * The SendMessage API accepts any generic message so you can skip using a binary formatter altogether.
+					*/
+					byte[] messageAsBytes = default(byte[]);
+					using (MemoryStream writer = new MemoryStream())
+					{
+						Serializer.Serialize(writer, carStats);
+						messageAsBytes = writer.ToArray();
+					}
+
+					//Using AMQP lite strategy to send the message
+					IDeviceSendStrategy deviceSendStrategy = new DeviceSendAMQPLiteStrategy();
+
+					// Send the message
+					await new DeviceSenderFactory().GetSender().SendMessageAsync(messageAsBytes, deviceContext, deviceSendStrategy);
+					Console.WriteLine("Message sent!");
 				}
-
-				//Using AMQP lite strategy to send the message
-				IDeviceSendStrategy deviceSendStrategy = new DeviceSendAMQPLiteStrategy();
-
-				// Send the message
-				await new DeviceSenderFactory().GetSender().SendMessageAsync(messageAsBytes, deviceContext, deviceSendStrategy);
 			}
 			catch (Exception ex)
 			{
@@ -92,5 +106,5 @@ namespace samples.iot.simulator.sender
 			}
 		}
 	}
-
 }
+

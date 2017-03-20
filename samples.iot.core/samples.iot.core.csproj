@@ -9,4 +9,9 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Utils\" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="YamlDotNet.NetCore" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
 </Project>
