@@ -5,6 +5,7 @@ The code provides a .NET Core based simulator for connecting to IoT Hub and perf
 1. Send a message using a .NET Core simulator to Azure IoT Hub using AMQP as the protocol.
 2. Receive a message using a .NET Core consumer
 3. Send a command to a device and receive an acknowledgment from the device (coming soon).
+
 The solution has been entirely developed using [VS for Mac (preview)](https://www.visualstudio.com/vs/visual-studio-mac/) using macOS (10.12.3) but should be able to run on any .NET Core compatible IDE. The dot net standard assemblies using [v1.6](https://docs.microsoft.com/en-us/dotnet/articles/standard/library) and the dot net core version is [1.1](https://www.microsoft.com/net/core#macos).
 ## Project structure
 The solution contains the following projects:
@@ -80,8 +81,8 @@ To run the sample, follow the steps below:
 	   }
 	}
 ```
-	**samples.iot.simulator.consumer**
-	```
+**samples.iot.simulator.consumer**
+```
 		{
 		   "settings":{
 			  "connectionStrings":[
