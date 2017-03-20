@@ -80,9 +80,9 @@ To run the sample, follow the steps below:
 		  "deviceId":"your device Id"
 	   }
 	}
-```
-**samples.iot.simulator.consumer**
-```
+	```
+	**samples.iot.simulator.consumer**
+	```
 		{
 		   "settings":{
 			  "connectionStrings":[
@@ -96,8 +96,8 @@ To run the sample, follow the steps below:
 			  "deviceId":"your device Id"
 		   }
 		}
-```		
-		
+	```
+	
 3. Build the solution.
 4. Run the `samples.iot.simulator.sender` project, this should generate a `VehicleStatus` messages, encode it as a `protobuf` packet and then send to your IoT Hub.
 5. Run the `samples.iot.simulator.consumer` project, this should scan all partitions, find the message for the Device and then decode the `protobuf` message to show current Alarm status for the device.
