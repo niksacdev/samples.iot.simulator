@@ -5,22 +5,21 @@ The code provides a .NET Core based simulator for connecting to IoT Hub and perf
 1. Send a message using a .NET Core simulator to Azure IoT Hub using AMQP as the protocol.
 2. Receive a message using a .NET Core consumer
 3. Send a command to a device and receive an acknowledgment from the device (coming soon).
-The solution has been entirely developed using VS for Mac (preview) using macOS (10.12.3) but should be able to run on any .NET Core compatible IDE. The dot net standard assemblies using [v1.6] and the dot net core version is [1.1].
+The solution has been entirely developed using [VS for Mac (preview)](https://www.visualstudio.com/vs/visual-studio-mac/) using macOS (10.12.3) but should be able to run on any .NET Core compatible IDE. The dot net standard assemblies using [v1.6](https://docs.microsoft.com/en-us/dotnet/articles/standard/library) and the dot net core version is [1.1](https://www.microsoft.com/net/core#macos).
 ## Project structure
 The solution contains the following projects:
 1. **samples.iot.core:** Contains core components, interfaces, base entity model to be used by the sample. It also contains some shared functionality such as Configuration handlers, token providers, connectivity modules.
 2.  **samples.iot.providers.sender:** Sender factory implementation for sending messages to IoT Hub.
 3. **samples.iot.simulator.sender:** The .NET Core Console app that provides an interface to configure your IoT Hub instance and send messages.
 4. **samples.iot.simulator.consumer:** The .NET Core Console app that provides an interface to consume incoming messages from the Event Hub Compatible Azure IoT Hub endpoint. 
-5. **samples.iot.strategies.amqp:** AMQP Lite strategy for IoT Hub. The sample follows a strategy patterns for the underlying modules so for example, the current implementation being used is [AMQP Lite]("https://github.com/Azure/amqpnetlite"), if you want to switch the implementation to a different AMQP provider, simply create your strategy and inject that to the provider. 
+5. **samples.iot.strategies.amqp:** AMQP Lite strategy for IoT Hub. The sample follows a strategy patterns for the underlying modules so for example, the current implementation being used is [AMQP Lite](https://github.com/Azure/amqpnetlite), if you want to switch the implementation to a different AMQP provider, simply create your strategy and inject that to the provider. 
 ```
 	//Using AMQP lite strategy to send the message
 	IDeviceSendStrategy deviceSendStrategy = new DeviceSendAMQPLiteStrategy();
 	// Send the message
 	await new DeviceSenderFactory().GetSender().SendMessageAsync(messageAsBytes, deviceContext, deviceSendStrategy);
 ```
-	
-6. **samples.iot.simulator.contracts:** Shared contracts between sender, receiver and consumer projects. The current sample leverages `protobuf` as the data interchange protocol and the the [`protobuf.net`] assembly is being used to provide the serialization and de-serialization. 
+6. **samples.iot.simulator.contracts:** Shared contracts between sender, receiver and consumer projects. The current sample leverages `protobuf` as the data interchange protocol and the the [`protobuf.net`](https://github.com/mgravell/protobuf-net) assembly is being used to provide the serialization and de-serialization. 
 
 ```
 	namespace samples.iot.simulator.contract
@@ -64,6 +63,7 @@ The solution contains the following projects:
 To run the sample, follow the steps below:
 1. Clone the repo and ensure you are able to compile the projects after restoring all nugget packages.
 2. The `samples.iot.simulator.sender` and `samples.iot.simulator.consumer` projects leverage a custom configuration model which leverages JSON objects. Edit the `settings.json` in the project for these projects to provide your IoT Hub and [Event Hub compatible endpoint] details respectively.
+	
 	**samples.iot.simulator.sender**
 	```
 	{
