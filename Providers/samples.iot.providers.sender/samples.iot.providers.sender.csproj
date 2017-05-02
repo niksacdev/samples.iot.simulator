@@ -9,6 +9,6 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
   <ItemGroup>
-    <ProjectReference Include="..\samples.iot.core\samples.iot.core.csproj" />
+    <ProjectReference Include="..\..\Core\samples.iot.core\samples.iot.core.csproj" />
   </ItemGroup>
 </Project>

@@ -13,18 +13,12 @@
     <PackageReference Include="YamlDotNet.NetCore" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\simulator.iot.simulator.contracts\simulator.iot.simulator.contracts.csproj" />
-    <ProjectReference Include="..\samples.iot.core\samples.iot.core.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Update="config.yml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <IncludeInPackage>true</IncludeInPackage>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <None Update="settings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\samples.iot.core\samples.iot.core.csproj" />
+    <ProjectReference Include="..\..\Core\simulator.iot.simulator.contracts\simulator.iot.simulator.contracts.csproj" />
   </ItemGroup>
 </Project>
