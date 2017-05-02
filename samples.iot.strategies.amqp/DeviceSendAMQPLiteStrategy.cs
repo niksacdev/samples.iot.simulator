@@ -39,7 +39,7 @@ namespace samples.iot.strategies.amqp
 				Session session  = new Session(connection);
 
 				string audience = Fx.Format("{0}/devices/{1}", iothubHostName, deviceId);
-				string resourceUri = Fx.Format("{0}/devices/{1}", iothubHostName, deviceId); // dont need this for sender
+				string resourceUri = Fx.Format("{0}/devices/{1}", iothubHostName, deviceId); 
 
 				// Generate the SAS token
 				string sasToken = TokenGenerator.GetSharedAccessSignature(null, deviceContext.DeviceKey, resourceUri, new TimeSpan(1, 0, 0));
