@@ -3,8 +3,8 @@
       "connectionStrings":[
          {
             "name":"azdevmaciothub",
-            "connectionString":"azdevmaciothub.azure-devices.net",
-            "sasKey":"X9GneHneA4Hsnrz7hFRBBpLRIHBKR5xzhLZuz6dpszo=",
+            "connectionString":"yourhub.azure-devices.net",
+            "sasKey":"",
             "sasKeyName":"device"
          }
       ],
