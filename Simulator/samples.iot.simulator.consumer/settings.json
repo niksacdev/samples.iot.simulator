@@ -3,8 +3,8 @@
       "connectionStrings":[
          {
             "name":"azdevmaciothub",
-            "connectionString":"Endpoint=sb://iothub-ns-azdevmacio-124132-1e4aeaac71.servicebus.windows.net/",
-            "sasKey":"OItJRPHV7jEw1jLUfQZ1Ldec1/GGTt0broEuVzBnKe0=",
+            "connectionString":"Endpoint=sb://yourEHCompatibleEndpoint.servicebus.windows.net/",
+            "sasKey":"",
             "sasKeyName":"service"
          }
       ],
