@@ -1,0 +1,13 @@
+﻿{
+   "settings":{
+      "connectionStrings":[
+         {
+           "name": "azdevmaciothub",
+          "connectionString": "Endpoint=sb://iothub-ns-azdevmacio-124132-1e4aeaac71.servicebus.windows.net/",
+          "sasKey": "OItJRPHV7jEw1jLUfQZ1Ldec1/GGTt0broEuVzBnKe0=",
+            "sasKeyName":"service"
+         }
+      ],
+      "deviceId":"D1234"
+   }
+}

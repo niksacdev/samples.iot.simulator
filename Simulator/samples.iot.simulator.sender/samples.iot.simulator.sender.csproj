@@ -9,9 +9,13 @@
     <DocumentationFile>bin\Debug\netcoreapp1.1\samples.iot.simulator.console.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.1-beta1" />
-    <PackageReference Include="AMQPNetLite" Version="1.2.2" />
     <PackageReference Include="protobuf-net" Version="2.1.0" />
+    <PackageReference Include="AMQPNetLite" Version="1.2.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+    <PackageReference Include="Serilog" Version="2.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="settings %28copy%29.json" />
   </ItemGroup>
   <ItemGroup>
     <None Update="settings.json">

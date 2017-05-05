@@ -4,6 +4,7 @@
 // ------------------------------------------------------------
 using System;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace samples.iot.core
 {
@@ -16,7 +17,7 @@ namespace samples.iot.core
 		/// Sends the message async.
 		/// </summary>
 		/// <returns>The message async.</returns>
-		/// <param name="">.</param>
+		/// <param name="">.</param>    
 		/// <param name="deviceContext">Device context.</param>
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		Task SendMessageAsync<T>(T message, DeviceContext deviceContext, IDeviceSendStrategy strategy);

@@ -13,12 +13,25 @@ namespace samples.iot.strategies.amqp
 	/// </summary>
 	public class DeviceReceiverDefaultStrategy : IDeviceReceiveStrategy
 	{
-		/// <summary>
-		/// Executes the operation async.
-		/// </summary>
-		/// <returns>The operation async.</returns>
-		/// <param name="deviceContext">Device context.</param>
-		public Task ExecuteOperationAsync(DeviceContext deviceContext)
+        ICommunicationSettings communicationSetttings;
+
+        /// <summary>
+        /// Configures the async.
+        /// </summary>
+        /// <returns>The async.</returns>
+        /// <param name="settings">Settings.</param>
+        public Task ConfigureAsync(ICommunicationSettings settings)
+        {
+            communicationSetttings = settings;
+            return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// Executes the operation async.
+        /// </summary>
+        /// <returns>The operation async.</returns>
+        /// <param name="deviceContext">Device context.</param>
+        public Task ExecuteOperationAsync(DeviceContext deviceContext)
 		{
 			throw new NotImplementedException();
 		}

@@ -8,20 +8,13 @@ namespace samples.iot.core
 	/// <summary>
 	/// Connection context.
 	/// </summary>
-	public class ConnectionContext
+	public abstract class ConnectionContext
 	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:samples.iot.simulator.console.ConnectionContext"/> class.
-		/// </summary>
-		public ConnectionContext()
-		{
-		}
-
 		/// <summary>
 		/// Gets or sets the name of the io TH ub host.
 		/// </summary>
 		/// <value>The name of the io TH ub host.</value>
-		public string IoTHubHostName { get; set; }
+		public string HostName { get; set; }
 
 		/// <summary>
 		/// Gets or sets the port.
@@ -29,5 +22,16 @@ namespace samples.iot.core
 		/// <value>The port.</value>
 		public int Port { get; set; }
 
+        /// <summary>
+        /// Gets or sets the connection string.
+        /// </summary>
+        /// <value>The connection string.</value>
+        public string ConnectionString { get; set; }
+
+        /// <summary>
+        /// Gets or sets the protocol.
+        /// </summary>
+        /// <value>The protocol.</value>
+        public DeviceProtocol Protocol { get; set; }
 	}
 }

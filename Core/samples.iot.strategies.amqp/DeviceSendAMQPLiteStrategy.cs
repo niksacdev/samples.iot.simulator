@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using samples.iot.core;
 using System.Runtime.Serialization.Formatters;
 using System.IO;
+using System.Collections.Generic;
 
 namespace samples.iot.strategies.amqp
 {
@@ -19,20 +20,33 @@ namespace samples.iot.strategies.amqp
 	/// </summary>
 	public class DeviceSendAMQPLiteStrategy : IDeviceSendStrategy
 	{
-		/// <summary>
-		/// Executes the operation async.
-		/// </summary>
-		/// <returns>The operation async.</returns>
-		/// <param name="message">Message.</param>
-		/// <param name="deviceContext">Device context.</param>
-		/// <typeparam name="T">The 1st type parameter.</typeparam>
-		public async Task ExecuteOperationAsync<T>(T message, DeviceContext deviceContext)
+        ICommunicationSettings communicationSettings;
+
+        /// <summary>
+        /// Configures the async.
+        /// </summary>
+        /// <returns>The async.</returns>
+        /// <param name="settings">Settings.</param>
+        public Task ConfigureAsync(ICommunicationSettings settings)
+        {
+            communicationSettings = settings;
+            return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// Executes the operation async.
+        /// </summary>
+        /// <returns>The operation async.</returns>
+        /// <param name="message">Message.</param>
+        /// <param name="deviceContext">Device context.</param>
+        /// <typeparam name="T">The 1st type parameter.</typeparam>
+        public async Task ExecuteOperationAsync<T>(T message, DeviceContext deviceContext)
 		{
 			try
 			{
 				Trace.TraceLevel = Amqp.TraceLevel.Frame | Amqp.TraceLevel.Verbose;
 				var deviceId = deviceContext.DeviceId;
-				var iothubHostName = deviceContext.IoTHubHostName;
+				var iothubHostName = deviceContext.HostName;
 
 				// Create a connection using device context
 				Connection connection  = await Connection.Factory.CreateAsync(new Address(iothubHostName, deviceContext.Port));
@@ -44,28 +58,29 @@ namespace samples.iot.strategies.amqp
 				// Generate the SAS token
 				string sasToken = TokenGenerator.GetSharedAccessSignature(null, deviceContext.DeviceKey, resourceUri, new TimeSpan(1, 0, 0));
 
-				//TODO: Need to make this call asynchronous 
+				//TODO: Need to make the token generation call asynchronous 
 				bool cbs = TokenGenerator.PutCbsToken(connection, iothubHostName, sasToken, audience);
-				if (cbs)
-				{
-					// create a session and send a telemetry message
-					session = new Session(connection);
-					byte[] messageAsBytes = default(byte[]);
-					if (typeof(T) == typeof(byte[]))
-					{
-						messageAsBytes = message as byte[];
-					}
-					else
-					{
-						// convert object to byte[]
-						//TODO: will need a binary formatter, not available in .net core yet.
-					}
+                if (cbs)
+                {
+                    // create a session and send a telemetry message
+                    session = new Session(connection);
 
-					// Get byte[] from 
-					await SendEventAsync(deviceId, messageAsBytes, session);
-					await session.CloseAsync();
-					await connection.CloseAsync();
-				}
+                    byte[] messageAsBytes = default(byte[]);
+                    if (typeof(T) == typeof(byte[]))
+                    {
+                        messageAsBytes = message as byte[];
+                    }
+                    else
+                    {
+                        // convert object to byte[]
+                        //TODO: will need a binary formatter, not available in .net core yet.
+                    }
+
+                    // Get byte[] from message
+                    await SendEventAsync(deviceId, messageAsBytes, session);
+                    await session.CloseAsync();
+                    await connection.CloseAsync();
+                }
 			}
 			catch (Exception ex)
 			{

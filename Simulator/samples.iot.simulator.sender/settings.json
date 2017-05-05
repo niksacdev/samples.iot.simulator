@@ -1,13 +1,13 @@
 ﻿{
-   "settings":{
-      "connectionStrings":[
-         {
-            "name":"azdevmaciothub",
-            "connectionString":"yourhub.azure-devices.net",
-            "sasKey":"",
-            "sasKeyName":"device"
-         }
-      ],
-      "deviceId":"D1234"
-   }
+  "settings": {
+    "connectionStrings": [
+      {
+        "name": "youriothubname",
+        "connectionString": "HostName=youriothub.azure-devices.net;SharedAccessKeyName=device;SharedAccessKey=yourkey=",
+        "sasKey": "yoursaskey",
+        "sasKeyName": "device"
+      }
+    ],
+    "deviceId": "yourdeviceid"
+  }
 }

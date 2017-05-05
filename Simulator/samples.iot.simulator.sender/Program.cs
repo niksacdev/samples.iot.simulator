@@ -10,6 +10,7 @@ using samples.iot.core;
 using samples.iot.providers.sender;
 using samples.iot.simulator.contract;
 using samples.iot.strategies.amqp;
+using Serilog;
 
 namespace samples.iot.simulator.sender
 {
@@ -18,6 +19,11 @@ namespace samples.iot.simulator.sender
 	/// </summary>
 	class Program
 	{
+        /// <summary>
+        /// The logger.
+        /// </summary>
+        static ILogger logger;
+
 		/// <summary>
 		/// The entry point of the program, where the program control starts and ends.
 		/// </summary>
@@ -26,6 +32,11 @@ namespace samples.iot.simulator.sender
 		{
 			try
 			{
+                // Create the SeriLog logger, using basic console logger, change / add other sinks as desired
+                logger = new LoggerConfiguration()
+                    .WriteTo.ColoredConsole()
+                    .CreateLogger();
+
 				//Execute the send command to send a message to IoT Hub
 				SendMessageToIoTHubAsync().Wait();
 			}
@@ -62,11 +73,13 @@ namespace samples.iot.simulator.sender
 					{
 						DeviceId = deviceId,
 						DeviceKey = sasKey,
-						IoTHubHostName = connection,
-						Port = (int)DeviceProtocol.AMQP
+						HostName = connection,
+                        ConnectionString = connection,
+						Port = (int)DeviceProtocol.AMQP // TODO: change if using a different strategy
 					};
 
 					// Build the message based on the protobuffer
+                    //TODO: randomize payload
 					var carStats = new VehicleStatus
 					{
 						AirBagStatus = 4,
@@ -92,7 +105,10 @@ namespace samples.iot.simulator.sender
 					}
 
 					//Using AMQP lite strategy to send the message
-					IDeviceSendStrategy deviceSendStrategy = new DeviceSendAMQPLiteStrategy();
+                    IDeviceSendStrategy deviceSendStrategy = new DeviceSendIoTHubAMQPStrategy();
+                   
+                    // Configure the strategy
+                    await deviceSendStrategy.ConfigureAsync(new DefaultCommunicationSettings { Logger = logger });
 
 					// Send the message
 					await new DeviceSenderFactory().GetSender().SendMessageAsync(messageAsBytes, deviceContext, deviceSendStrategy);

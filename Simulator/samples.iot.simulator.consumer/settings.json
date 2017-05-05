@@ -2,12 +2,12 @@
    "settings":{
       "connectionStrings":[
          {
-            "name":"azdevmaciothub",
-            "connectionString":"Endpoint=sb://yourEHCompatibleEndpoint.servicebus.windows.net/",
-            "sasKey":"",
+           "name": "youriothubname",
+          "connectionString": "Endpoint=sb://your-eh-endpoint.servicebus.windows.net/",
+          "sasKey": "yoursaskey",
             "sasKeyName":"service"
          }
       ],
-      "deviceId":"D1234"
+      "deviceId":"yourdeviceId"
    }
 }
