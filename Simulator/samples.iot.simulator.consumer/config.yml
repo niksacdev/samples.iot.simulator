@@ -2,6 +2,6 @@
 settings:
  connectionStrings:
   - name: azdevmaciothub
-    connectionString: 'sb://iothub-ns-azdevmacio-124132-1e4aeaac71.servicebus.windows.net/'
+    connectionString: 'sb://youriotendpoint/'
     sasKey: ''
     sasKeyName: ''
